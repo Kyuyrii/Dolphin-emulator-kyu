@@ -1,6 +1,6 @@
 name: dolphin-emulator-kyu
 base: core24
-version: '2506a'
+version: '2509'
 platforms:
   amd64:
     build-on: [amd64]
@@ -95,7 +95,7 @@ parts:
   dolphin-emu:
     plugin: cmake
     source: https://github.com/dolphin-emu/dolphin.git
-    source-tag: 2506a
+    source-tag: $SNAPCRAFT_PROJECT_VERSION
     build-snaps:
       - kde-qt6-core24-sdk
       - kf6-core24-sdk
