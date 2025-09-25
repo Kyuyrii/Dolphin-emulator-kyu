@@ -49,10 +49,7 @@ apps:
 
   kvantum:
     command: usr/bin/kvantummanager
-    environment:
-      SNAP_DESKTOP_RUNTIME: $SNAP/kf6
-      GTK_USE_PORTAL: "1"
-      QT_VERSION: "6"
+    extensions: [kde-neon-6]
     plugs:
       - home
 
