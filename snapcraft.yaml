@@ -5,6 +5,9 @@ platforms:
   amd64:
     build-on: [amd64]
     build-for: [amd64]
+  arm64:
+    build-on: [arm64]
+    build-for: [arm64]
 summary: GameCube / Wii / Triforce Emulator
 description: |
   Dolphin is an emulator for two recent Nintendo video game consoles: the GameCube and the Wii. It allows PC gamers to enjoy games for these two consoles in full HD (1080p) with several enhancements: compatibility with all PC controllers, turbo speed, networked multiplayer, and even more!
@@ -92,12 +95,12 @@ layout:
     bind: $SNAP/gpu-2404/libdrm
   /usr/share/drirc.d:
     symlink: $SNAP/gpu-2404/drirc.d
+  /etc/fonts:
+    bind: $SNAP/etc/fonts
   /usr/share/games/dolphin-emu/sys:
     symlink: $SNAP/usr/share/games/dolphin-emu/sys
   /usr/share/games/locale:
     bind: $SNAP/usr/local/share/locale
-  /etc/fonts:
-    bind: $SNAP/etc/fonts
 
 package-repositories:
   - type: apt
