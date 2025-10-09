@@ -55,6 +55,9 @@ hooks:
     command-chain:
       - snap/command-chain/hooks-configure-desktop
 
+environment:
+  QT_PLUGIN_PATH: $SNAP/kvantum/usr/lib/x86_64-linux-gnu/qt6/plugins${QT_PLUGIN_PATH:+:$QT_PLUGIN_PATH}
+
 plugs:
   desktop:
     mount-host-font-cache: false
@@ -85,6 +88,11 @@ plugs:
     default-provider: mesa-2404
   shared-memory:
     private: true
+  kvantum:
+    content: kvantum
+    interface: content
+    target: $SNAP/kvantum
+    default-provider: qt-style-kvantum
 
 layout:
   /usr/share/X11:
@@ -101,6 +109,10 @@ layout:
     symlink: $SNAP/usr/share/games/dolphin-emu/sys
   /usr/share/games/locale:
     bind: $SNAP/usr/local/share/locale
+  /usr/share/color-schemes:
+    symlink: $SNAP/kvantum/usr/share/color-schemes
+  /usr/share/Kvantum:
+    symlink: $SNAP/kvantum/usr/share/Kvantum
 
 package-repositories:
   - type: apt
