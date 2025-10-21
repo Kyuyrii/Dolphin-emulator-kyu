@@ -28,6 +28,8 @@ apps:
       QT_QPA_PLATFORM: xcb
       GTK_USE_PORTAL: "1"
       QT_VERSION: "6"
+      LD_LIBRARY_PATH: $SNAP/lxqt-support/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$LD_LIBRARY_PATH
+      QT_PLUGIN_PATH: $SNAP/lxqt-support/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt6/plugins:$QT_PLUGIN_PATH
     plugs:
       - desktop
       - desktop-legacy
@@ -54,9 +56,6 @@ hooks:
   configure:
     command-chain:
       - snap/command-chain/hooks-configure-desktop
-
-environment:
-  QT_PLUGIN_PATH: $SNAP/kvantum/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt6/plugins${QT_PLUGIN_PATH:+:$QT_PLUGIN_PATH}
 
 plugs:
   desktop:
@@ -88,11 +87,11 @@ plugs:
     default-provider: mesa-2404
   shared-memory:
     private: true
-  kvantum:
-    content: kvantum
+  lxqt-support:
+    content: lxqt-support
     interface: content
-    target: $SNAP/kvantum
-    default-provider: qt-style-kvantum
+    target: $SNAP/lxqt-support
+    default-provider: lxqt-support
 
 layout:
   /usr/share/X11:
@@ -110,9 +109,9 @@ layout:
   /usr/share/games/locale:
     bind: $SNAP/usr/local/share/locale
   /usr/share/color-schemes:
-    symlink: $SNAP/kvantum/usr/share/color-schemes
+    symlink: $SNAP/lxqt-support/usr/share/color-schemes
   /usr/share/Kvantum:
-    symlink: $SNAP/kvantum/usr/share/Kvantum
+    symlink: $SNAP/lxqt-support/usr/share/Kvantum
 
 package-repositories:
   - type: apt
