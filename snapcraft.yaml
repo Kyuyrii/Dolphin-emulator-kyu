@@ -112,11 +112,13 @@ parts:
       - libpugixml1v5
       - libasound2t64
       - libasound2-plugins
+      - libcurl4t64
     prime:
       - usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libbluetooth.so*
       - usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libpugixml.so*
       - usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libjack.so*
       - usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/alsa-lib
+      - usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libcurl.so*
 
   command-chain:
     after: [dolphin-emu-app]
