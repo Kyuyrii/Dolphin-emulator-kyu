@@ -73,6 +73,7 @@ parts:
       - libevdev-dev
       - libfreetype-dev
       - libzstd-dev
+      - glslang-dev
     cmake-parameters:
       - -DCMAKE_BUILD_TYPE=Release
       - -DENABLE_ALSA=ON
