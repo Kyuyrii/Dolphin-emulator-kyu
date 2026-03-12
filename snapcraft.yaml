@@ -1,6 +1,6 @@
 name: dolphin-emulator-kyu
 base: core24
-version: '2512'
+version: '2603'
 platforms:
   amd64:
     build-on: [amd64]
