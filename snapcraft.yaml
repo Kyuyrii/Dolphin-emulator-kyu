@@ -60,6 +60,7 @@ layout:
 
 parts:
   dolphin-emu-app:
+    after: [sdl3]
     plugin: cmake
     source: https://github.com/dolphin-emu/dolphin.git
     source-tag: $SNAPCRAFT_PROJECT_VERSION
@@ -82,6 +83,22 @@ parts:
     override-build: |
       craftctl default
       sed -e 's|Name=Dolphin Emulator|Name=Dolphin Emulator [Kyu]|' -i  $CRAFT_PART_INSTALL/usr/local/share/applications/dolphin-emu.desktop
+
+  sdl3:
+    plugin: cmake
+    source: https://github.com/libsdl-org/SDL.git
+    source-tag: release-3.4.2
+    build-packages:
+      - libdrm-dev
+      - libxkbcommon-dev
+      - libxss-dev
+      - libfribidi-dev
+      - libxcursor-dev
+      - libxi-dev
+      - libxrandr-dev
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
 
   dependencies:
     after: [command-chain]
