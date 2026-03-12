@@ -17,11 +17,12 @@ icon: dolphin-emu.svg
 
 apps:
   dolphin-emulator-kyu:
-    command-chain: [snap/command-chain/unset-qt_qpa_platform]
+    command-chain: [override-xdg-paths]
     command: usr/games/dolphin-emu
     desktop: usr/local/share/applications/dolphin-emu.desktop
     common-id: org.DolphinEmu.dolphin-emu
     environment:
+      HOME: $SNAP_USER_COMMON
       QT_QPA_PLATFORMTHEME: xdgdesktopportal
       LD_LIBRARY_PATH: $SNAP/lxqt-support/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$LD_LIBRARY_PATH
       QT_PLUGIN_PATH: $SNAP/lxqt-support/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt6/plugins:$QT_PLUGIN_PATH
@@ -124,5 +125,3 @@ parts:
     after: [dolphin-emu-app]
     plugin: dump
     source: ./command-chain/
-    organize:
-      unset-qt_qpa_platform: snap/command-chain/unset-qt_qpa_platform
