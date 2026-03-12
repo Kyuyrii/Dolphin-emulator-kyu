@@ -74,6 +74,9 @@ parts:
       - libfreetype-dev
       - libzstd-dev
       - glslang-dev
+      - glslang-tools
+      - libssl-dev
+      - libusb-1.0-0-dev
     cmake-parameters:
       - -DCMAKE_BUILD_TYPE=Release
       - -DENABLE_ALSA=ON
