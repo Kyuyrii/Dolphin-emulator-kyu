@@ -1,6 +1,6 @@
 name: dolphin-emulator-kyu
 base: core24
-version: '2603a'
+version: '2609a'
 platforms:
   amd64:
     build-on: [amd64]
@@ -24,8 +24,6 @@ apps:
     environment:
       HOME: $SNAP_USER_COMMON
       QT_QPA_PLATFORMTHEME: xdgdesktopportal
-      LD_LIBRARY_PATH: $SNAP/lxqt-support/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$LD_LIBRARY_PATH
-      QT_PLUGIN_PATH: $SNAP/lxqt-support/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt6/plugins:$QT_PLUGIN_PATH
     extensions: [kde-neon-6]
     plugs:
       - screen-inhibit-control
@@ -43,11 +41,6 @@ apps:
 plugs:
   shared-memory:
     private: true
-  lxqt-support-core24:
-    content: lxqt-support-core24
-    interface: content
-    target: $SNAP/lxqt-support
-    default-provider: lxqt-support-core24
 
 layout:
   /usr/share/games/dolphin-emu/sys:
@@ -56,8 +49,8 @@ layout:
     bind: $SNAP/usr/local/share/locale
   /usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/alsa-lib:
     symlink: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/alsa-lib
-  /usr/share/Kvantum:
-    symlink: $SNAP/lxqt-support/usr/share/Kvantum
+  /usr/share/games/dolphin-emu/Sys/Themes:
+    symlink: $SNAP/usr/share/games/dolphin-emu/Sys/Themes
 
 parts:
   dolphin-emu-app:
